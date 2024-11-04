@@ -4,10 +4,10 @@ public class Tea extends Product {
 	
 	private boolean isHerbal;
 	private String brewColour, medicinalUse;
-	private int caffeineContent; //measured in grams
+	private double caffeineContent; //measured in grams
 	
 	//there are different constructors for if the tea is herbal or not, and if the id is given
-	public Tea (String name, String supplier, int price, String brewColour, int caffeineContent) {
+	public Tea (String name, String supplier, int price, String brewColour, double caffeineContent) {
 		this(0, name, supplier, price, brewColour, caffeineContent);
 	}
 	
@@ -16,14 +16,14 @@ public class Tea extends Product {
 		this.medicinalUse = medicinalUse;
 	}
 	
-	public Tea (int id, String name, String supplier, int price, String brewColour, int caffeineContent) {
-		super(id, name, supplier, price);
+	public Tea (int id, String name, String supplier, int price, String brewColour, double caffeineContent) {
+		super(id, name, supplier, price, true);
 		this.brewColour = brewColour;
 		this.caffeineContent = caffeineContent;
 	}
 	
 	public Tea (int id, String name, String supplier, int price, String brewColour, String medicinalUse) {
-		super(id, name, supplier, price);
+		super(id, name, supplier, price, true);
 		this.brewColour = brewColour;
 		this.medicinalUse = medicinalUse;
 	}
@@ -73,7 +73,7 @@ public class Tea extends Product {
 	/**
 	 * @return the amount of caffeine in the tea in grams
 	 */
-	public int getCaffeineContent() {
+	public double getCaffeineContent() {
 		return caffeineContent;
 	}
 

@@ -4,21 +4,21 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public abstract class Product {
-	protected int id; // id=0 means no id set (a new, unsaved, product)
-	protected String name;
-	protected String supplier;
-	protected int price;
+	protected int id, price; // id=0 means no id set (a new, unsaved, product)
+	protected String name, supplier;
+	protected boolean isTea;
 	
 	//there are different constructors for if the id is different
-	protected Product(String name, String supplier, int price){
-		this(0, name, supplier, price);
+	protected Product(String name, String supplier, int price, boolean isTea){
+		this(0, name, supplier, price, isTea);
 	}
 	
-	protected Product(int id, String name, String supplier, int price){
+	protected Product(int id, String name, String supplier, int price, boolean isTea){
 		this.id = id;
 		this.name = name;
 		this.supplier = supplier;
 		this.price = price;
+		this.isTea = isTea;
 	}
 	
 	/**
@@ -75,6 +75,23 @@ public abstract class Product {
 	 */
 	protected void setPrice(int price) {
 		this.price = price;
+	}
+	
+	/**
+	 * @return if this item is tea or coffee
+	 */
+	protected String getType() {
+		if (isTea) {
+			return "Tea";
+		}
+		return "Coffee";
+	}
+	
+	/**
+	 * @param isTea the item type to set
+	 */
+	protected void setType(boolean isTea) {
+		this.isTea = isTea;
 	}
 	
 	/**

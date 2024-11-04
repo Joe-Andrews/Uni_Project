@@ -7,26 +7,9 @@ USE projectstarter;
 CREATE TABLE Product (
 	Id INT PRIMARY KEY AUTO_INCREMENT,
 	Name VARCHAR(50) NOT NULL,
-    Supplier VARCHAR(50) NOT NULL,
+	Description VARCHAR(50) NOT NULL,
 	PriceInPence INT NOT NULL,
 	CONSTRAINT ck_posPrice CHECK (PriceInPence > 0)
-);
-
-CREATE TABLE Tea (
-	ProductId INT NOT NULL,
-    Type BOOLEAN NOT NULL,
-    Description TEXT NOT NULL,
-    Caffeine DOUBLE,
-    Medicial TEXT,
-    CONSTRAINT fk_TeaId FOREIGN KEY (ProductId) REFERENCES Product(Id)
-);
-
-CREATE TABLE Coffee (
-	ProductId INT NOT NULL,
-    PerCup DOUBLE,
-    Caffeine DOUBLE,
-    CONSTRAINT fk_CoffeeId FOREIGN KEY (ProductId) REFERENCES Product(Id),
-    CONSTRAINT ck_caffeine CHECK (Caffeine >= 0)
 );
 
 CREATE TABLE Basket (

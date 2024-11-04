@@ -2,15 +2,15 @@ package model;
 
 public class Coffee extends Product {
 	
-	private int caffeineContent, recAmt; //both in grams
+	private double caffeineContent, recAmt; //both in grams
 	
 	//there are different costructors for if the id is given
-	public Coffee(String name, String supplier, int price, int caffeineContent, int recAmt) {
+	public Coffee(String name, String supplier, int price, double caffeineContent, double recAmt) {
 		this(0, name, supplier, price, caffeineContent, recAmt);
 	}
 	
-	public Coffee(int id, String name, String supplier, int price, int caffeineContent, int recAmt) {
-		super(id, name, supplier, price);
+	public Coffee(int id, String name, String supplier, int price, double caffeineContent, double recAmt) {
+		super(id, name, supplier, price, false);
 		this.caffeineContent = caffeineContent;
 		this.recAmt = recAmt;
 	}
@@ -18,7 +18,7 @@ public class Coffee extends Product {
 	/**
 	 * @return the amount of caffeine in the coffee in grams
 	 */
-	public int getCaffeineContent() {
+	public double getCaffeineContent() {
 		return caffeineContent;
 	}
 	
@@ -32,7 +32,7 @@ public class Coffee extends Product {
 	/**
 	 * @return the recommended amount of coffee per serving
 	 */
-	public int getRecAmt() {
+	public double getRecAmt() {
 		return recAmt;
 	}
 
