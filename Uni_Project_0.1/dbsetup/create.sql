@@ -3,13 +3,48 @@ CREATE DATABASE projectstarter;
 USE projectstarter;
 
 
+CREATE TABLE Product (
+	Id INT PRIMARY KEY AUTO_INCREMENT,
+	Name VARCHAR(50) NOT NULL,
+    PriceInPence INT NOT NULL,
+    IsSold BOOLEAN DEFAULT TRUE,
+	CONSTRAINT ck_posPrice CHECK (PriceInPence > 0)
+);
 
+CREATE TABLE Supplier (
+	Id INT PRIMARY KEY AUTO_INCREMENT,
+	Name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Supplies (
+	SupplierId INT,
+    ProductID INT,
+    CONSTRAINT fk_SupplierId FOREIGN KEY (SupplierId) REFERENCES Supplier(Id),
+    CONSTRAINT fk_PId FOREIGN KEY (ProductId) REFERENCES Supplier(Id)
+);
+/*
 CREATE TABLE Product (
 	Id INT PRIMARY KEY AUTO_INCREMENT,
 	Name VARCHAR(50) NOT NULL,
 	Description VARCHAR(50) NOT NULL,
 	PriceInPence INT NOT NULL,
 	CONSTRAINT ck_posPrice CHECK (PriceInPence > 0)
+);
+*/
+CREATE TABLE Tea (
+	Id INT PRIMARY KEY,
+    Caffeinated BOOLEAN,
+    MedicinalUse TEXT,
+    Caffeine DOUBLE,
+    BrewColour VARCHAR(20),
+	CONSTRAINT fk_TeaId FOREIGN KEY (Id) REFERENCES Product(Id)
+);
+
+CREATE TABLE Coffee (
+	Id INT PRIMARY KEY,
+    Caffeine DOUBLE,
+    Recommend DOUBLE,
+    CONSTRAINT fk_CoffeeId FOREIGN KEY (Id) REFERENCES Product(Id)
 );
 
 CREATE TABLE Basket (
@@ -21,7 +56,43 @@ CREATE TABLE Basket (
 	CONSTRAINT ck_quantity CHECK (Quantity >= 0)
 );
 
+DELIMITER /
+CREATE PROCEDURE insertTea(
+	IN name VARCHAR(50),
+	IN supplier INT,
+	IN price INT,
+    IN caffeinated BOOLEAN,
+    IN medicinalUse TEXT,
+    IN caffeine DOUBLE,
+    IN brewColour VARCHAR(20),
+    OUT keyval INT
+)
+BEGIN
+	INSERT INTO Product (Name, PriceInPence) 
+	    VALUES (name, price);
+	SELECT last_insert_id() INTO keyval;
+    INSERT INTO Tea (Id, Caffinated, MedicinalUse, Caffeine, BrewColour)
+		VALUES (keyval, caffinated, medicinalUse, caffeine, brewColour);
+END;
+/
 
+CREATE PROCEDURE insertCoffee(
+	IN name VARCHAR(50),
+	IN supplier INT,
+	IN price INT,
+    IN caffeine DOUBLE,
+    IN recommend DOUBLE,
+    OUT keyval INT
+)
+BEGIN
+	INSERT INTO Product (Name, PriceInPence) 
+	    VALUES (name, price);
+	SELECT last_insert_id() INTO keyval;
+    INSERT INTO Coffee (Id, Caffeine, Recommend)
+		VALUES (keyval, caffeine, recommend);
+END;
+
+/*
 INSERT INTO Product (Name, Description, PriceInPence) VALUES ('Copper Pipe 2m', '15mm copper pipe; 2m length',1000);
 INSERT INTO Product (Name, Description, PriceInPence) VALUES ('Steel Pipe 2m','15mm steel pipe; 2m length', 1200);
 INSERT INTO Product (Name, Description, PriceInPence) VALUES ('Short Nails','25mm nails; pack of 200',250);
@@ -29,7 +100,10 @@ INSERT INTO Product (Name, Description, PriceInPence) VALUES ('Long Nails','50mm
 INSERT INTO Product (Name, Description, PriceInPence) VALUES ('Glue','Sticky glue',599);
 INSERT INTO Product (Name, Description, PriceInPence) VALUES ('Glue gun','A glue gun',1999);
 
-DELIMITER /
+
+
+
+
 
 CREATE PROCEDURE insertNewProduct(
 	IN name VARCHAR(50),
@@ -114,4 +188,7 @@ CREATE PROCEDURE readFullProducts()
 BEGIN
 		SELECT * FROM Product;
 END;
-/		
+/
+*/
+
+		
