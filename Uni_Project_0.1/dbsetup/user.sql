@@ -57,10 +57,13 @@ END;
 
 CREATE PROCEDURE loginCheck(
 	IN username VARCHAR(20),
-    IN password VARCHAR(20)
+    IN password VARCHAR(20),
+    
+    OUT token INT
     )
 BEGIN
-	SELECT COUNT(Id) FROM USERS WHERE username = Username AND password = Password;
+	SELECT COUNT(Id) AS output FROM USERS WHERE username = Username AND password = Password;
+    SET token = output;
 END;
 /
 
