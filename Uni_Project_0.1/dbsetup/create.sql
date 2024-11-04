@@ -81,19 +81,19 @@ BEGIN
     INSERT INTO Coffee (Id, Caffeine, Recommend)
 		VALUES (keyval, caffeine, recommend);
 END;
+/
+
+#INSERT INTO Product (Name, Description, PriceInPence) VALUES ('Copper Pipe 2m', '15mm copper pipe; 2m length',1000);
+#INSERT INTO Product (Name, Description, PriceInPence) VALUES ('Steel Pipe 2m','15mm steel pipe; 2m length', 1200);
+#INSERT INTO Product (Name, Description, PriceInPence) VALUES ('Short Nails','25mm nails; pack of 200',250);
+#INSERT INTO Product (Name, Description, PriceInPence) VALUES ('Long Nails','50mm nails; pack of 75',475);
+#INSERT INTO Product (Name, Description, PriceInPence) VALUES ('Glue','Sticky glue',599);
+#INSERT INTO Product (Name, Description, PriceInPence) VALUES ('Glue gun','A glue gun',1999);
+
+
+
 
 /*
-INSERT INTO Product (Name, Description, PriceInPence) VALUES ('Copper Pipe 2m', '15mm copper pipe; 2m length',1000);
-INSERT INTO Product (Name, Description, PriceInPence) VALUES ('Steel Pipe 2m','15mm steel pipe; 2m length', 1200);
-INSERT INTO Product (Name, Description, PriceInPence) VALUES ('Short Nails','25mm nails; pack of 200',250);
-INSERT INTO Product (Name, Description, PriceInPence) VALUES ('Long Nails','50mm nails; pack of 75',475);
-INSERT INTO Product (Name, Description, PriceInPence) VALUES ('Glue','Sticky glue',599);
-INSERT INTO Product (Name, Description, PriceInPence) VALUES ('Glue gun','A glue gun',1999);
-
-
-
-
-
 
 CREATE PROCEDURE insertNewProduct(
 	IN name VARCHAR(50),
@@ -179,6 +179,5 @@ BEGIN
 		SELECT * FROM Product;
 END;
 /
-*/
 
 		
