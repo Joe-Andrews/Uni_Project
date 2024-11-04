@@ -3,8 +3,7 @@ package util;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import model.Product;
+import model.*;
 
 public class ProductHandler {
 
@@ -25,11 +24,45 @@ public class ProductHandler {
 		ArrayList<Product> products = new ArrayList<Product>();
 		
 		while(rs.next()){
-			Product p = new Product(rs.getInt("Id"),
+			Product p;
+			
+			if (rs.getString("Type").equals("Tea")) {
+				if (rs.getString("Medicinal") == null) {
+					p = new Tea(
+							rs.getInt("ID"),
+							rs.getString("Name"),
+							rs.getString("Supplier"),
+							rs.getInt("PriceInPence"),
+							rs.getString("BrewColour"),
+							rs.getDouble("Caffeine")
+						);
+				}
+				else {
+					p = new Tea(
+							rs.getInt("ID"),
+							rs.getString("Name"),
+							rs.getString("Supplier"),
+							rs.getInt("PriceInPence"),
+							rs.getString("BrewColour"),
+							rs.getString("Medicinal")
+						);
+				}
+				
+						
+			}
+			else {
+				p = new Coffee(
+						rs.getInt("Id"),
 						rs.getString("Name"),
 						rs.getString("Description"),
-						rs.getInt("priceInPence")
+						rs.getInt("PriceInPence"),
+						rs.getDouble("Caffeine"),
+						rs.getDouble("Recommend")
 					);
+			}
+			
+			
+			
 			products.add(p);		
 		}
 		return products;
