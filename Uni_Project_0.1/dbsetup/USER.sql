@@ -5,8 +5,8 @@ USE projectstarter;
 CREATE TABLE USER (
 	Id INT PRIMARY KEY AUTO_INCREMENT,
 	Username VARCHAR(20) UNIQUE NOT NULL,
-    Password VARCHAR(20) UNIQUE NOT NULL,
-    AdminType BOOLEAN DEFAULT FALSE
+    Password VARCHAR(20) NOT NULL,
+    AccountType BOOLEAN DEFAULT FALSE
 );
 
 DELIMITER /
@@ -20,7 +20,7 @@ BEGIN
 	DECLARE dup_val_on_index_error CONDITION FOR 1062;
 	DECLARE CONTINUE HANDLER FOR dup_val_on_index_error
 	BEGIN
-		SET @msg = CONCAT('Username or Password is already recorded.');
+		SET @msg = CONCAT('Username ', username, ' is already recorded.');
 		RESIGNAL SET MESSAGE_TEXT = @msg;
 	END;
     
