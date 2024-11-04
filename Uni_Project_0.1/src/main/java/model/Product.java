@@ -24,49 +24,49 @@ public abstract class Product {
 	/**
 	 * @return the id
 	 */
-	protected int getId() {
+	public int getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	protected void setId(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
 	/**
 	 * @return the name
 	 */
-	protected String getName() {
+	public String getName() {
 		return name;
 	}
 
 	/**
 	 * @param name the name to set
 	 */
-	protected void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
 	/**
 	 * @return the description
 	 */
-	protected String getSupplier() {
+	public String getSupplier() {
 		return supplier;
 	}
 
 	/**
 	 * @param description the description to set
 	 */
-	protected void setSupplier(String supplier) {
+	public void setSupplier(String supplier) {
 		this.supplier = supplier;
 	}
 
 	/**
 	 * @return the price
 	 */
-	protected int getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
