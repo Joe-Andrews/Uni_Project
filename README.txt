@@ -37,4 +37,18 @@ Procedures:
   - all used select statements
 
 
+REQUIREMENTS:
+
+Functional:
+  - display information about items
+  - order items
+  - have a user login system
+  - user hierarchy
+
+Non functional:
+  - GDPR
+  - efficient design
+  - easy to use GUI
+
+
 Also needs study on data about tea and coffee consumption(this is for presentation not for project itself)

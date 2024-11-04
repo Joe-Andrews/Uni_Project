@@ -1,2 +1,3 @@
 - go over readme plan
+- ask if type of item has multiple suppliers
 - 
