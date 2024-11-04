@@ -13,4 +13,4 @@ tea specific info:
 coffee specific info:
   recommended amount per cup in grams
 
-Also needs study on data about tea and coffee consumption
+Also needs study on data about tea and coffee consumption(this is for presentation not for project itself)
