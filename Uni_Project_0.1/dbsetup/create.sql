@@ -8,20 +8,10 @@ CREATE TABLE Product (
 	Name VARCHAR(50) NOT NULL,
     PriceInPence INT NOT NULL,
     IsSold BOOLEAN DEFAULT TRUE,
+    Supplier VARCHAR (20),
 	CONSTRAINT ck_posPrice CHECK (PriceInPence > 0)
 );
 
-CREATE TABLE Supplier (
-	Id INT PRIMARY KEY AUTO_INCREMENT,
-	Name VARCHAR(50) NOT NULL
-);
-
-CREATE TABLE Supplies (
-	SupplierId INT,
-    ProductID INT,
-    CONSTRAINT fk_SupplierId FOREIGN KEY (SupplierId) REFERENCES Supplier(Id),
-    CONSTRAINT fk_PId FOREIGN KEY (ProductId) REFERENCES Supplier(Id)
-);
 /*
 CREATE TABLE Product (
 	Id INT PRIMARY KEY AUTO_INCREMENT,
@@ -68,8 +58,8 @@ CREATE PROCEDURE insertTea(
     OUT keyval INT
 )
 BEGIN
-	INSERT INTO Product (Name, PriceInPence) 
-	    VALUES (name, price);
+	INSERT INTO Product (Name, PriceInPence, Supplier) 
+	    VALUES (name, price, suppler);
 	SELECT last_insert_id() INTO keyval;
     INSERT INTO Tea (Id, Caffinated, MedicinalUse, Caffeine, BrewColour)
 		VALUES (keyval, caffinated, medicinalUse, caffeine, brewColour);
@@ -85,8 +75,8 @@ CREATE PROCEDURE insertCoffee(
     OUT keyval INT
 )
 BEGIN
-	INSERT INTO Product (Name, PriceInPence) 
-	    VALUES (name, price);
+	INSERT INTO Product (Name, PriceInPence, Supplier) 
+	    VALUES (name, price, supplier);
 	SELECT last_insert_id() INTO keyval;
     INSERT INTO Coffee (Id, Caffeine, Recommend)
 		VALUES (keyval, caffeine, recommend);
