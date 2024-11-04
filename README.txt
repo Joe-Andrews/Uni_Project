@@ -13,4 +13,11 @@ tea specific info:
 coffee specific info:
   recommended amount per cup in grams
 
+- login and account
+- user and admin accounts
+- search bar / sorting
+
+
+
+
 Also needs study on data about tea and coffee consumption(this is for presentation not for project itself)
