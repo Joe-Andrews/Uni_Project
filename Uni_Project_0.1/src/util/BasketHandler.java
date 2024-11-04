@@ -41,7 +41,7 @@ public class BasketHandler {
 	public static ArrayList<Product> getItemsFromBasket() throws SQLException{
 		// Uh-oh - STILL no support for an 'order id' so I can't tell one person's order from another
 		// Better way to do this (than using a raw SQL query)?
-		String query = "SELECT p.id, p.name, p.description, p.priceInPence FROM Basket b"
+		String query = "SELECT p.id, p.name, p.priceInPence FROM Basket b"
 				+ "			JOIN Product p ON b.productId = p.id";
 		ResultSet rs = DbConnector.runSqlPrepared(query);
 		return ProductHandler.resultSetToProducts(rs);
