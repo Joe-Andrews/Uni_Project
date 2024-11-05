@@ -1,0 +1,61 @@
+/* Basic styling for the page layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+/* Center container and set max-width for readability */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for form headings */
+h1, h2 {
+    color: #007bff;
+}
+
+/* Add padding and margin to the form labels */
+.form-label {
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 5px;
+}
+
+/* Styling for form fields */
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Button styling */
+button[type="submit"] {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Additional layout for instructional text */
+.instructions {
+    font-style: italic;
+    color: #555555;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}

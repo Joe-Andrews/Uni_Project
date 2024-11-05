@@ -29,14 +29,14 @@ public class UserHandler {
 	
 	public static boolean createAccount(String user, String password, boolean isAdmin) {
 		try {
-			Connection conn = dbConnector.getConnection();
+			Connection conn = DbConnector.getConnection();
 			CallableStatement cs;
 			
 			if (isAdmin) {
 				cs = conn.prepareCall("{call newAdmin(?,?)}");
 			}
 			else {
-				cs = conn.prepareCall("call newUser(?,?)")
+				cs = conn.prepareCall("call newUser(?,?)");
 			}
 			cs.setString(0, user);
 			cs.setString(1, password);

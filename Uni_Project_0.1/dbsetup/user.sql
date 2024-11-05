@@ -7,7 +7,29 @@ CREATE TABLE USERS (
 	Username VARCHAR(20) UNIQUE NOT NULL,
     Password VARCHAR(20) NOT NULL,
     AccountType BOOLEAN DEFAULT FALSE
+    # DOB DATE,
+    # FName VARCHAR(20),
+    # LName VARCHAR(20),
+    # email VARCHAR(50)
 );
+
+/*
+CREATE TABLE Address(
+	UserID INT,
+    FirstLine VARCHAR(20),
+    SecondLine VARCHAR(20),
+    City VARCHAR(20),
+    County VARCHAR(20),
+    Postcode VARCHAR(10)
+);
+
+CREATE TABLE CardDetails(
+	UserID INT,
+    CardName VARCHAR(20),
+    CardNo INT,
+    SortCode INT
+);
+*/
 
 DELIMITER /
 
