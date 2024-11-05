@@ -28,7 +28,7 @@ public class DbConnector {
 	 *  Alter the details below to match your own connection details
 	 */
 	
-	private static final String DB_URL = "jdbc:mysql://localhost:3306/projectstarter"; // NOTE: DB name included!
+	private static final String DB_URL = "jdbc:mysql://localhost:3306/totaliteadb"; // NOTE: DB name included!
 	
 	private static final String USER = "root";
 	private static final String PASSWORD = "Pa$$word123"; // is this the correct password?
